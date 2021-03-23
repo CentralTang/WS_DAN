@@ -83,7 +83,7 @@ tf.app.flags.DEFINE_integer(
     'eval_image_size', 448, 'Eval image size')
 
 tf.app.flags.DEFINE_string(
-    'gpus', "3",
+    'gpus', "0",
     'gpu devices')
 
 tf.app.flags.DEFINE_string(
