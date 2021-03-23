@@ -123,7 +123,7 @@ def _convert_dataset(split_name, datasets, dataset_dir):
             allow_soft_placement=True,
             log_device_placement=False)
         config.gpu_options.allow_growth = True
-        # config.gpu_options.visible_device_list='1'
+        config.gpu_options.visible_device_list='0'
         with tf.Session(config=config) as sess:
             for shard_id in range(_NUM_SHARDS):
                 output_filename = _get_dataset_filename(
