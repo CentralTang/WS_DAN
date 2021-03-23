@@ -6,7 +6,7 @@ MODEL_PATH='./pre_trained/inception_v3.ckpt'
 
 python train_sample.py --learning_rate=0.0001 \
                             --dataset_name=$DATASET \
-                            --dataset_dir="./$DATASET/Data/tfrecords" \
+                            --dataset_dir="../Data/$DATASET/Data/tfrecords" \
                             --train_dir=$TRAIN_DIR \
                             --checkpoint_path=$MODEL_PATH \
                             --max_number_of_steps=80000 \
