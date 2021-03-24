@@ -307,13 +307,16 @@ def main(_):
         else:
             # This ensures that we make a single pass over all of the data.
             num_batches = math.ceil(dataset.num_samples / float(FLAGS.batch_size))
-
-        config = tf.ConfigProto(
-            allow_soft_placement=True,
-            log_device_placement=False)
-        config.gpu_options.allow_growth = True
-        # config.gpu_options.per_process_gpu_memory_fraction = 1.0
-        config.gpu_options.visible_device_list = FLAGS.gpus
+        
+        if len(FLAGS.gpus) == 0:
+            config = tf.ConfigProto(device_count={'GPU':0})
+        else:
+            config = tf.ConfigProto(
+                allow_soft_placement=True,
+                log_device_placement=False)
+            config.gpu_options.allow_growth = True
+            # config.gpu_options.per_process_gpu_memory_fraction = 1.0
+            config.gpu_options.visible_device_list = FLAGS.gpus
 
         while True:
             if tf.gfile.IsDirectory(FLAGS.checkpoint_path):
