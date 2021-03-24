@@ -339,7 +339,7 @@ def main(_):
                 variables_to_restore=variables_to_restore,
                 session_config=config)
 
-            time.sleep(60 * 5)
+            time.sleep(60)
             # break
 
 
